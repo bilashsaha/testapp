@@ -55,11 +55,11 @@
 <div class="app">
     <h1>PhoneGap</h1>
 
-    <div id="deviceready">
-
+    <div id="new_page">
+        <a href="http://www.google.com">click meee</a>
         <div data-role="content">
             <ul data-role="listview" id="appointments" data-theme="a">
-
+			<li> notun vieww</li>
             </ul>
         </div>
 
