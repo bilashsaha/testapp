@@ -56,10 +56,37 @@
             <p class="event listening">Connecting to Device.......................</p>
             <p class="event received">Device is Ready to use</p>
             <p id="test"></p>
+
+<div data-role="content">
+        <ul data-role="listview"  id="appointments" data-theme="a">
+            
+        </ul>
+    </div>
+
+
         <script type="text/javascript">
             $(function() {
-                $("p#test").html("holaaaa")   ;
+                $("p#test").html("holaaaa")   ;                
+                  $.ajax({
+        url: "http://192.168.1.109:3003/api/appointments.json?date=2017-01-01&clinician_id=426",
+        dataType: "json",
+        async: true,
+        success: function (result) {
+            $('#movie-data').empty();
+    $.each(result.appointments, function(i, row) {        
+            $('#appointments').append('<li>'+row.start_at+'"></li>');           
+            $('#appointments').listview('refresh');                   
+    }); 
+        },
+        error: function (request,error) {
+            alert('Network error has occurred please try again!');
+        }
+    }); 
             });
+
+
+
+
         </script>
         </div>
     </div>
