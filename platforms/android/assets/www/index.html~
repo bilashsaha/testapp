@@ -50,6 +50,7 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
 
 
 
@@ -59,7 +60,7 @@
     <h1>Therapymate</h1>
 
     <div id="deviceready">
-         <img class="toggle" src="icon-mobile.png" onclick="toggle_sidebar()" style="position: fixed; right: 10px; top: 10px" />
+         <span class="toggle" src="icon-mobile.png" onclick="toggle_sidebar()" style="position: fixed; right: 10px; top: 10px" >Me</span>
         <div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 200px; left: -200px; background-color: black; transition: all 0.5s ease-in-out;">
             sda
         </div>
@@ -68,6 +69,7 @@
             <ul data-role="listview" id="appointments" data-theme="a">
 
             </ul>
+	 <input type="text" id="date" />
         </div>
 
 
@@ -87,6 +89,9 @@
                 sidebar.style.left = "-200px";
             }
         }
+        $(function(){
+	  $("#date").datepicker();
+	})
     </script>
     </div>
 </div>
