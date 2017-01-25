@@ -52,10 +52,17 @@
 <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 
 
+
+
 <div class="app">
+<div id="menu"></div>
     <h1>Therapymate</h1>
 
     <div id="deviceready">
+         <span class="toggle" src="icon-mobile.png" onclick="toggle_sidebar()" style="position: fixed; right: 10px; top: 10px" >Me</span>
+        <div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 200px; left: -200px; background-color: black; transition: all 0.5s ease-in-out;">
+            sda
+        </div>
 
         <div data-role="content">
             <ul data-role="listview" id="appointments" data-theme="a">
@@ -64,28 +71,23 @@
         </div>
 
 
-        <script type="text/javascript">
-            $(function () {
-                $("p#test").html("holaaaa");
-                $.ajax({
-                    url: "http://192.168.1.109:3003/api/appointments.json?date=2017-01-01&clinician_id=426",
-                    dataType: "json",
-                    async: true,
-                    success: function (result) {
-                        $('#movie-data').empty();
-                        $.each(result.appointments, function (i, row) {
-                            $('#appointments').append('<li>' + row.start_at + '"></li>');
-                            $('#appointments').listview('refresh');
-                        });
-                    },
-                    error: function (request, error) {
-                        alert('Network error has occurred please try again!');
-                    }
-                });
-            });
-
-
-        </script>
+        <script>
+        function toggle_sidebar()
+        {
+            var sidebar = document.getElementById("sidebar");
+            
+            console.log(sidebar.style.left);
+            
+            if(sidebar.style.left == "-200px")
+            {
+                sidebar.style.left = "0px";
+            }
+            else
+            {
+                sidebar.style.left = "-200px";
+            }
+        }
+    </script>
     </div>
 </div>
 
