@@ -121,3 +121,7 @@ h1 {
     color: white;
     font-weight: bold;
 }
+
+#appointments tr td{
+    width: 33%;
+}

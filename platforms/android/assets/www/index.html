@@ -38,26 +38,41 @@
   </div>
 
   <div data-role="header" style="text-align: center">
-    <img src="/img/logo.png"/>
+    <img src="img/logo.png"/>
     <div style="float: right">
       <a href="#menubar" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">
-        <img class="icon-mobile" src="/img/icon-mobile.png"/>
+        <img class="icon-mobile" src="img/icon-mobile.png"/>
       </a>
     </div>
   </div>
 
   <div data-role="main" class="ui-content">
-    <p>Bodyyy</p>
-  </div>
+    <table width="100%" id="appointments">
 
-  <div data-role="footer">
-    <h1>Page Footer</h1>
+    </table>
   </div>
 
 </div>
 
 <script type="text/javascript">
   app.initialize();
+  $(function(){
+    $.ajax({
+      url: apiHost + "/api/app/appointments.json?date=2017-01-24&clinician_id=426",
+      dataType: "json",
+      crossDomain: true,
+      type: 'GET',
+      success: function (result) {
+        $('#appointments').html('');
+        $.each(result.appointments, function (i, row) {
+          $('#appointments').append('<tr><td align="left">'+ row.start_at_time + '</td>' + '<td align="center">' + row.patient_name + '</td>' + '<td align="right">' + row.service_code + '</td>></tr>');
+        });
+      },
+      error: function (request, error) {
+        alert(error);
+      }
+    });
+  });
 </script>
 
 

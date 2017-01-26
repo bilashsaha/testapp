@@ -1,6 +1,4 @@
-$(function(){
-
-});
+var apiHost = "http://192.168.1.109:3003";
 
 function toggle_sidebar()
 {
