@@ -2,56 +2,62 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="msapplication-tap-highlight" content="no"/>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
-    <title>Therapymate</title>
+  <meta charset="utf-8"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+  <title>Therapymate</title>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/application.js"></script>
 </head>
 
 <body>
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/application.js"></script>
 
 
+<div class="index" data-role="page">
+  <div data-role="panel" id="menubar" data-display="overlay">
+    <h1>Menu</h1>
+    <ul>
+      <li>
+        <a href="">About</a>
+      </li>
+      <li>
+        <a href="">Contact</a>
+      </li>
+    </ul>
+  </div>
 
-
-<div class="app">
-<div id="menu"></div>
-    <h1>Therapymate</h1>
-
-    <div id="deviceready">
-         <img class="toggle" src="/img/icon-mobile.png" onclick="toggle_sidebar()" style="position: fixed; right: 10px; top: 10px; width: 30px;" />
-        <div id="sidebar" style="position: fixed; display: inline-block; top: 0px; height: 100%; width: 200px; left: 0px; background-color: #00A9DF; transition: all 0.5s ease-in-out;">
-          <ul>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Help</a></li>
-          </ul>
-        </div>
-
-        <div data-role="content">
-            <ul data-role="listview" id="appointments" data-theme="a">
-
-            </ul>
-	 <input type="date"  />
-          <a href="#" onclick="window.location='about.html'" class="about">About</a>
-        </div>
+  <div data-role="header" style="text-align: center">
+    <img src="/img/logo.png"/>
+    <div style="float: right">
+      <a href="#menubar" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">
+        <img class="icon-mobile" src="/img/icon-mobile.png"/>
+      </a>
     </div>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>Bodyyy</p>
+  </div>
+
+  <div data-role="footer">
+    <h1>Page Footer</h1>
+  </div>
+
 </div>
 
 <script type="text/javascript">
-    app.initialize();
-    toggle_sidebar();
+  app.initialize();
 </script>
 
 
