@@ -52,7 +52,7 @@
         <fieldset class="ui-field-contain">
           <label>Clinician</label>
           <select name="appointment[clinician_id]" id="appointment_clinician_id">
-
+            <option>Please Select</option>
           </select>
         </fieldset>
 
@@ -67,12 +67,14 @@
   app.initialize();
 
   $(function(){
+    alert("after dom ready")
     $.ajax({
       url: apiHost + "/api/app/appointments/new.json",
       dataType: "json",
       crossDomain: true,
       type: 'GET',
       success: function (result) {
+        alert("inside success")
         $('#appointment_clinician_id').html('');
         $.each(result.clinicians, function (i, row) {
           $('#appointment_clinician_id').append('<option value="'+row.id+'">'+row.name+'</option>');
