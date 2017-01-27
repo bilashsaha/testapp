@@ -59,32 +59,33 @@
       </div>
       <input type="submit" data-inline="true" value="Submit">
     </form>
+    <script>
+      $(function(){
+        alert("after dom ready")
+        $.ajax({
+          url: apiHost + "/api/app/appointments/new.json",
+          dataType: "json",
+          crossDomain: true,
+          type: 'GET',
+          success: function (result) {
+            alert("inside success")
+            $('#appointment_clinician_id').html('');
+            $.each(result.clinicians, function (i, row) {
+              $('#appointment_clinician_id').append('<option value="'+row.id+'">'+row.name+'</option>');
+            });
+          },
+          error: function (request, error) {
+            alert(error);
+          }
+        });
+      });
+    </script>
   </div>
 
 </div>
 
 <script type="text/javascript">
   app.initialize();
-
-  $(function(){
-    alert("after dom ready")
-    $.ajax({
-      url: apiHost + "/api/app/appointments/new.json",
-      dataType: "json",
-      crossDomain: true,
-      type: 'GET',
-      success: function (result) {
-        alert("inside success")
-        $('#appointment_clinician_id').html('');
-        $.each(result.clinicians, function (i, row) {
-          $('#appointment_clinician_id').append('<option value="'+row.id+'">'+row.name+'</option>');
-        });
-      },
-      error: function (request, error) {
-        alert(error);
-      }
-    });
-  });
 </script>
 
 
