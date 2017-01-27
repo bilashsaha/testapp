@@ -124,4 +124,13 @@ h1 {
 
 #appointments tr td{
     width: 33%;
+    padding: 3px;
+}
+#menubar ul li{
+    padding: 2px 0;
+}
+#menubar ul li a{
+  font-weight: normal !important;
+  font-size: 14px;
+  text-decoration: none;
 }

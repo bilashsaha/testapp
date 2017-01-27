@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="css/index.css"/>
   <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
-  <title>Therapymate</title>
+  <title>New Appointment</title>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
@@ -29,7 +29,7 @@
     <h1>Menu</h1>
     <ul>
       <li>
-        <a href="new_appointment.html">New Appointment</a>
+        <a href="">New Appointment</a>
       </li>
       <li>
         <a href="">New Patient</a>
@@ -47,25 +47,35 @@
   </div>
 
   <div data-role="main" class="ui-content">
-    <table width="100%" id="appointments">
+    <form method="post" action="demoform.asp">
+      <div class="ui-field-contain">
+        <fieldset class="ui-field-contain">
+          <label>Clinician</label>
+          <select name="appointment[clinician_id]" id="appointment_clinician_id">
 
-    </table>
+          </select>
+        </fieldset>
+
+      </div>
+      <input type="submit" data-inline="true" value="Submit">
+    </form>
   </div>
 
 </div>
 
 <script type="text/javascript">
   app.initialize();
+
   $(function(){
     $.ajax({
-      url: apiHost + "/api/app/appointments.json?date=2017-01-24&clinician_id=426",
+      url: apiHost + "/api/app/appointments/new.json",
       dataType: "json",
       crossDomain: true,
       type: 'GET',
       success: function (result) {
-        $('#appointments').html('');
-        $.each(result.appointments, function (i, row) {
-          $('#appointments').append('<tr><td align="left">'+ row.start_at_time + '</td>' + '<td align="center">' + row.patient_name + '</td>' + '<td align="right">' + row.service_code + '</td>></tr>');
+        $('#appointment_clinician_id').html('');
+        $.each(result.clinicians, function (i, row) {
+          $('#appointment_clinician_id').append('<option value="'+row.id+'">'+row.name+'</option>');
         });
       },
       error: function (request, error) {
